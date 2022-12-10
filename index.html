@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AngularOktato">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <title>Document</title>
+    
+</head>
+<body class="bg-light">
+    <div ng-controller = 'MainController'>
+        <nav class="navbar bg-success">
+            <div class="container-fluid">
+              <h2 class="text-light">Zephyr Írószer Bolt</h2>
+            </div>
+          </nav>
+        <div id="termekek" class="p-3 m-0 container text-center">
+            <div class="row">
+        <div class="card m-3" style="width: 18rem;">
+            <img src="assets/swiss-filing-folder.webp" class="card-img-top" alt="huhu">
+            <div class="card-body">
+              <h5 class="card-title">Irattartó mappa - 599 Ft</h5>
+              <p class="card-text">Keményfedeles irattartó mappa.</p>
+              Színválaszték:
+              <select ng-model="irattartoSzin">
+                  <option ng-repeat="szin in irattartoSzinek">{{szin}}</option>
+              </select><br>
+              <br>
+              <button class="btn btn-success" ng-click="irattartoKosarba()">Kosárba</button>
+            </div>
+            </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="assets/toll-signetta-kek.jpg" class="card-img-top" alt="huhu">
+            <div class="card-body">
+              <h5 class="card-title">Toll - 85 Ft</h5>
+              <p class="card-text">Golyóstoll, biztonsági kupakkal.</p>
+              Színválaszték:
+              <select ng-model="tollSzin">
+                  <option ng-repeat="szin in tollSzinek">{{szin}}</option>
+              </select><br>
+              <br>
+              <button class="btn btn-success" ng-click="tollKosarba()">Kosárba</button>
+            </div>
+            </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="assets/sticky-notes-500x500.webp" class="card-img-top" alt="huhu">
+            <div class="card-body">
+              <h5 class="card-title">Post-it - 350 Ft</h5>
+              <p class="card-text">Öntapadós jegyzetpapír, 100db-os. Többféle színben is kapható!</p>
+              Színválaszték:
+              <select ng-model="postitSzin">
+                  <option ng-repeat="szin in postitSzinek">{{szin}}</option>
+              </select><br>
+              <br>
+              <button class="btn btn-success" ng-click="postitKosarba()">Kosárba</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div id="kosar" class="p-3 m-2 bg-white border border-success">
+        <h3>A kosár tartalma: </h3>
+        <div ng-model="kosar"ng-repeat="termek in kosar">{{termek.szin}}&nbsp;{{termek.nev}}&nbsp;-&nbsp;{{termek.ar}}Ft</div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+              <blockquote class="blockquote mb-0 border-success bg-light text-secondary">
+                <p>iroda@zephyrbolt.com</p>
+                <p>+36 36 445-5445</p>
+                <footer class="blockquote-footer">Zephyr Írószer Kft. - <cite title="Source Title">minden jog fenntertva</cite></footer>
+              </blockquote>
+            </div>
+          </div>
+    </div>
+
+    <script src="js/angular.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/maincontroller.js" type="text/javascript"></script>
+    <script>src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"</script>
+</body>
+</html>
